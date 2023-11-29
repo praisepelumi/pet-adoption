@@ -7,11 +7,11 @@ const App = () => {
   return (
     <div>
       <h1>Adopt Me!</h1>
-      <Pet animal="Dog" name="Tasha" breed="German Shepherd"/>
-      <Pet animal="Cat" name="Lennon" breed="mixed"/>
-      <Pet animal="Horse" name="Jim" breed="Stallion"/>
+      <Pet animal="Dog" name="Tasha" breed="German Shepherd" />
+      <Pet animal="Cat" name="Lennon" breed="mixed" />
+      <Pet animal="Horse" name="Jim" breed="Stallion" />
     </div>
-  )
+  );
 };
 
 // get our html root, the div that would contain our entire application

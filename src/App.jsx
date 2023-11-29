@@ -1,15 +1,12 @@
 /* eslint-env browser */
-import { createRoot } from "react-dom";
-
-import Pet from "./Pet";
+import { createRoot } from "react-dom/client";
+import SearchParams from "./SearchParams";
 
 const App = () => {
   return (
     <div>
       <h1>Adopt Me!</h1>
-      <Pet animal="Dog" name="Tasha" breed="German Shepherd" />
-      <Pet animal="Cat" name="Lennon" breed="mixed" />
-      <Pet animal="Horse" name="Jim" breed="Stallion" />
+      <SearchParams/> 
     </div>
   );
 };

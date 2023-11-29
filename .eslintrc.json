@@ -16,21 +16,20 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     },
-    "env": {
-      "es6": true,
-      "browser": true,
-      "node": true
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      },
-      "import/resolver": {
-        "node":
-        {
-          "extensions": [".js", ".jsx"]
-        }
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
       }
     }
   }

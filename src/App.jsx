@@ -1,42 +1,24 @@
 /* eslint-env browser */
+import { createRoot } from "react-dom";
 
-import React from "react";
-import ReactDOM from "react-dom";
-
-const Pet = ({ animal, name, breed }) => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, animal),
-    React.createElement("h2", {}, name),
-    React.createElement("h2", {}, breed),
-  ]);
-};
+import Pet from "./Pet";
 
 const App = () => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, "Adopt Me!"),
-    React.createElement(Pet, {
-      animal: "Dog",
-      name: "Tasha",
-      breed: "German Shepherd",
-    }),
-    React.createElement(Pet, {
-      animal: "Bird",
-      name: "Rio",
-      breed: "Azul",
-    }),
-    React.createElement(Pet, {
-      animal: "Cat",
-      name: "Bibi",
-      breed: "mixed",
-    }),
-  ]);
+  return (
+    <div>
+      <h1>Adopt Me!</h1>
+      <Pet animal="Dog" name="Tasha" breed="German Shepherd"/>
+      <Pet animal="Cat" name="Lennon" breed="mixed"/>
+      <Pet animal="Horse" name="Jim" breed="Stallion"/>
+    </div>
+  )
 };
 
 // get our html root, the div that would contain our entire application
 const container = document.getElementById("root");
 
 // create a root for your REACTDOM which you create with your container
-const root = ReactDOM.createRoot(container);
+const root = createRoot(container);
 
 // unto your root, you render your main App
-root.render(React.createElement(App));
+root.render(<App />);

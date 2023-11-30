@@ -2,15 +2,18 @@ import { useEffect, useState } from "react";
 
 import Pet from "./Pet";
 
+// custom hooks
+import useBreedList from "./useBreedList";
+
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
-const BREED = [];
 
 const SearchParams = () => {
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
-  const breeds = [];
+
+  const [breeds] = useBreedList(animal); // custom hook for updating breed drop down menu
 
   useEffect(() => {
     requestPets();
@@ -70,7 +73,7 @@ const SearchParams = () => {
             placeholder="Breed"
           >
             <option />
-            {BREED.map((breed) => {
+            {breeds.map((breed) => {
               return <option key={breed}>{breed}</option>;
             })}
           </select>

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Pet from "./Pet";
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 const BREED = [];
 
@@ -6,6 +7,21 @@ const SearchParams = () => {
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
+  const [pets, setPets] = useState("");
+  const breeds = [];
+
+  useEffect(() => {
+    requestPets();
+  });
+
+  async function requestPets() {
+    const res = await fetch(
+      `http ://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+    );
+    const json = await res.json();
+    setPets(json.pets);
+  }
+
   return (
     <div className="search-params">
       <form>
@@ -25,6 +41,7 @@ const SearchParams = () => {
             value={animal}
             onChange={(e) => {
               setAnimal(e.target.value);
+              setBreed("");
             }}
           >
             <option />
@@ -40,6 +57,7 @@ const SearchParams = () => {
               setBreed(e.target.value);
             }}
             id="breed"
+            disabled={breeds.length === 0}
             value={breed}
             placeholder="Breed"
           >
@@ -51,6 +69,17 @@ const SearchParams = () => {
         </label>
         <button>Submut</button>
       </form>
+
+      {pets.map((pet) => {
+        return (
+          <Pet
+            name={pet.name}
+            breed={pet.breed}
+            animal={pet.animal}
+            key={pet.id}
+          />
+        );
+      })}
     </div>
   );
 };

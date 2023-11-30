@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import Pet from "./Pet";
+import Results from "./Results";
 
 // custom hooks
 import useBreedList from "./useBreedList";
@@ -61,6 +61,7 @@ const SearchParams = () => {
             })}
           </select>
         </label>
+
         <label htmlFor="breed">
           Breed
           <select
@@ -78,19 +79,10 @@ const SearchParams = () => {
             })}
           </select>
         </label>
-        <button>SubmIt</button>
+        <button>Submit</button>
       </form>
 
-      {pets.map((pet) => {
-        return (
-          <Pet
-            name={pet.name}
-            breed={pet.breed}
-            animal={pet.animal}
-            key={pet.id}
-          />
-        );
-      })}
+      <Results pets={pets} />
     </div>
   );
 };

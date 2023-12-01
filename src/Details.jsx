@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import fetchPet from "./src/fetchPet";
+import fetchPet from "./fetchPet";
 // browser routers stores the parameters and we utilize useParams to access it
 
 const Details = () => {

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Results from "./Results";
 
 // custom hooks
-import useBreedList from "./useBreedList";
+import useBreedList from "./useBreedList.js";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 

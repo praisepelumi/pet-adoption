@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import ErrorBoundary from "./ErrorBoundary.jsx";
 import fetchPet from "./fetchPet";
 import Carousel from "./Carousel.jsx";
 // browser routers stores the parameters and we utilize useParams to access it
@@ -33,4 +34,11 @@ const Details = () => {
   );
 };
 
-export default Details;
+function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Details {...props} />
+    </ErrorBoundary>
+  );
+}
+export default DetailsErrorBoundary;
